@@ -1,0 +1,21 @@
+
+body {
+	color: #666;
+	font-family: arial, sans-serif;
+	font-size: 16px;
+}
+
+#wrapper {
+	padding: 30px;
+}
+
+#mainLeft, #mainRight {
+	float: left;
+	width: 50%;
+}
+
+#newDataContainer textarea {
+	border: 1px solid #ccc;
+	height: 200px;
+	width: 500px;
+}
