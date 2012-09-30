@@ -14,8 +14,24 @@ body {
 	width: 50%;
 }
 
+#newDataContainer {
+	padding: 20px;
+}
+
 #newDataContainer textarea {
 	border: 1px solid #ccc;
 	height: 200px;
 	width: 500px;
+}
+
+#navigation {
+	padding: 20px;
+}
+
+ul li.dir {
+	padding-left: 10px;	
+}
+
+ul li.file {
+	padding-left: 20px;	
 }

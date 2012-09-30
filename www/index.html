@@ -9,23 +9,30 @@
 
 		<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="/js/app.js"></script>
+		<script type="text/javascript" src="/js/file-tree.js"></script>
+		<script type="text/javascript" src="/js/folder.js"></script>
 		
     </head>
     <body>
     	<div id="wrapper">
 	        <h1>FS Scanner</h1>
-	        <ul>
-	        	<li>
-	        		<a href="javascript:void(0);" id="newData">New data</a>
-	        	</li>
-	        </ul>
+	        <div id="navigation">
+		        <ul>
+		        	<li>
+		        		<a href="javascript:void(0);" id="newData">New data</a>
+		        	</li>
+		        </ul>
+		    </div>
 	        <div id="newDataContainer" class="hidden">
-	        	<textarea name="newData"></textarea>
+	        	<p>
+	        		<textarea name="newData"></textarea>
+	        	</p>
 	        	<a href="javascript:void(0);" id="addNewData">Add</a>
+	        	<a href="javascript:void(0);" id="cancelNewData">Cancel</a>
 	        </div>
 	        <div>
-	        	<div id="mainLeft">a</div>
-	        	<div id="mainRight">b</div>
+	        	<div id="mainLeft"></div>
+	        	<div id="mainRight"></div>
 	        	<div class="brclear"></div>
 	        </div>
 		</div>

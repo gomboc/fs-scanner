@@ -5,15 +5,19 @@ var FsScanner = FsScanner || {};
 	FsScanner.App = function()
 	{
 		jQuery( document ).ready( jQuery.proxy( this.onReady, this ) );
+		
+		this.fileTree = new FsScanner.FileTree();
 	};
 	
 	FsScanner.App.prototype = 
 	{
 	
+			
 		initControls: function()
 		{
 			jQuery( "#newData" ).click( jQuery.proxy( this.onNewData, this ) );
-			jQuery( "#addNewData" ).click( jQuery.proxy( this.onAddNewData, this ) )
+			jQuery( "#addNewData" ).click( jQuery.proxy( this.onAddNewData, this ) );
+			jQuery( "#cancelNewData" ).click( jQuery.proxy( this.onCancelNewData, this ) )
 		},
 		
 		
@@ -25,11 +29,21 @@ var FsScanner = FsScanner || {};
 				
 				json = json.replace( /\",\s*\]/g, '"]' );
 				
-				console.log( JSON.parse( json ) );
+				this.fileTree.setData( JSON.parse( json ) )
+							 .generate();
 				
-				jQuery( "#newDataContainer" ).hide();
-				jQuery( "#newDataContainer textarea" ).val( "" );
+				this.onCancelNewData();
+				
 			}
+		},
+		
+		
+		onCancelNewData: function()
+		{
+			jQuery( "#newDataContainer" ).hide();
+			jQuery( "#newDataContainer textarea" ).val( "" );
+			
+			return this;
 		},
 		
 		
