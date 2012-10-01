@@ -2,12 +2,12 @@ var FsScanner = FsScanner || {};
 
 ( function() {
 	
-	FsScanner.FileTree = function()
+	FsScanner.fileTree.FileTree = function()
 	{
 
 	};
 	
-	FsScanner.FileTree.prototype = 
+	FsScanner.fileTree.FileTree.prototype = 
 	{
 		
 		data: [],
@@ -28,7 +28,7 @@ var FsScanner = FsScanner || {};
 				
 		addFolder: function( key, folderData )
 		{
-			new FsScanner.Folder( folderData );
+			new FsScanner.fileTree.Folder( folderData );
 		},
 		
 		

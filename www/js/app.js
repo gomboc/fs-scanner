@@ -6,7 +6,7 @@ var FsScanner = FsScanner || {};
 	{
 		jQuery( document ).ready( jQuery.proxy( this.onReady, this ) );
 		
-		this.fileTree = new FsScanner.FileTree();
+		this.fileTree = new FsScanner.fileTree.FileTree();
 	};
 	
 	FsScanner.App.prototype = 
