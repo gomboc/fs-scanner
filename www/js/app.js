@@ -42,6 +42,7 @@ var FsScanner = FsScanner || {};
 		{
 			jQuery( "#newDataContainer" ).hide();
 			jQuery( "#newDataContainer textarea" ).val( "" );
+			jQuery( "#main" ).show();
 			
 			return this;
 		},
