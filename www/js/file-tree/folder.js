@@ -10,7 +10,7 @@ var FsScanner = FsScanner || {};
 		
 		this.container = jQuery( "#mainLeft ul.root" );
 		
-		this.generateDir()
+		this.generateRow()
 			.generateFiles();
 		
 		this.selectedContainer = jQuery( "#selectedDirs ul" );
@@ -25,13 +25,13 @@ var FsScanner = FsScanner || {};
 		data: {},
 		
 		
-		dirRow: null,
+		row: null,
 		
 			
 			
 		generateOneFile: function( key, fileName )
 		{
-			new FsScanner.fileTree.File( fileName, this.data.dir, this.dirRow );
+			new FsScanner.fileTree.File( fileName, this.data.dir, this.row );
 		},
 		
 		
@@ -39,30 +39,9 @@ var FsScanner = FsScanner || {};
 		{
 			var list = jQuery( "<ul>", {} );
 			
-			this.dirRow.append( list );
+			this.row.append( list );
 			
 			jQuery.each( this.data.files, jQuery.proxy( this.generateOneFile, this ) );
-		},
-		
-		
-		generateDir: function()
-		{
-			var dirName = jQuery( "<a>", {
-				click:	jQuery.proxy( this.onSelect, this ),
-				data:	{ obj: this },
-				href:	"javascript:void(0);",
-				html:  	this.data.dir,
-				title:	this.data.dir
-			} );
-			
-			this.dirRow = jQuery( "<li>", {
-											"class": 	"dir",
-											html:		dirName
-										  } );
-			
-			this.container.append( this.dirRow );
-			
-			return this; 
 		},
 		
 		

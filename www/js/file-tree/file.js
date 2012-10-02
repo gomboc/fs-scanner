@@ -8,9 +8,10 @@
 		
 		this.dirName = dirName;
 		
-		this.container = container;
+		this.container = jQuery( "ul", container );
 		
-		this.generateFile();
+		this.removeFolderNameFromFile()
+			.generateRow();
 		
 		this.selectedContainer = jQuery( "#selectedFiles ul" );
 	};
@@ -28,37 +29,24 @@
 		dirName: null,
 		
 		
+		row: null,
+		
+		
 		selectedContainer: null,
 		
-			
-		generateFile: function()
-		{
-			var fileName = jQuery( "<a>", {
-				click:	jQuery.proxy( this.onSelect, this ),
-				data:	{ obj: this },
-				href:	"javascript:void(0);",
-				html:  	this.getFileName(),
-				title:  this.getFileName()
-			} );
-			
-			var fileRow = jQuery( "<li>", {
-				"class": "file",
-				html: 	 fileName
-			} );
-
-			jQuery( "ul", this.container ).append( fileRow );
-		},
-		
-		
-		getFileName: function()
-		{
-			return this.file.replace( this.dirName, "" );
-		},
 		
 		
 		getName: function()
 		{
 			return this.file;
+		},
+		
+		
+		removeFolderNameFromFile: function()
+		{
+			this.file.replace( this.dirName, "" );
+			
+			return this;
 		}
 		
 	};
