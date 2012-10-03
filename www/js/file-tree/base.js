@@ -11,6 +11,25 @@
 		options: {},
 		
 		
+		row: null,
+		
+		
+		uid: null,
+		
+		
+		appendToSelected: function()
+		{
+			var row = jQuery( "<li>", {
+				"class":	this.getUid(),
+				text: 		this.getName()
+			} );
+			
+			this.selectedContainer.append( row );
+			
+			this.getElement().addClass( "selected" );
+		},
+		
+		
 		generateRow: function()
 		{
 			var link = jQuery( "<a>", {
@@ -18,6 +37,7 @@
 				data:	{ obj: this },
 				href:	"javascript:void(0);",
 				html:  	this.getName(),
+				id:		this.getUid(),
 				title:  this.getName()
 			} );
 			
@@ -32,15 +52,42 @@
 		},
 		
 		
+		getElement: function()
+		{
+			return jQuery( "#" + this.getUid() );
+		},
+		
+		
+		getUid: function()
+		{
+			if ( this.uid == null ) {
+				
+				this.uid = "fs" + Math.random().toString(36).substring(7);
+			}
+			
+			return this.uid;
+		},
+		
+		
+		isSelected: function()
+		{
+			return this.getElement().hasClass( "selected" );
+		},
+		
+		
 		onSelect: function( e )
 		{
-			jQuery( e.currentTarget ).addClass( "selected" );
+			var method = this.isSelected() ? "removeFromSelected": "appendToSelected";
 			
-			var row = jQuery( "<li>", {
-				text: this.getName()
-			} );
+			this[ method ]();
+		},
+		
+		
+		removeFromSelected: function()
+		{
+			jQuery( "." + this.getUid(), this.selectedContainer).remove();
 			
-			this.selectedContainer.append( row );
+			this.getElement().removeClass( "selected" );
 		},
 		
 		
