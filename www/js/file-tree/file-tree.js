@@ -20,6 +20,7 @@ var FsScanner = FsScanner || {};
 										} );
 			
 			jQuery( "#mainLeft" ).html( list );
+			jQuery( "#selectedDirs ul, #selectedFiles ul" ).html( "" );
 			
 			jQuery.each( this.data, jQuery.proxy( this.addFolder, this ) );
 		},

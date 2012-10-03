@@ -17,7 +17,8 @@ var FsScanner = FsScanner || {};
 		{
 			jQuery( "#newData" ).click( jQuery.proxy( this.onNewData, this ) );
 			jQuery( "#addNewData" ).click( jQuery.proxy( this.onAddNewData, this ) );
-			jQuery( "#cancelNewData" ).click( jQuery.proxy( this.onCancelNewData, this ) )
+			jQuery( "#cancelNewData" ).click( jQuery.proxy( this.onCancelNewData, this ) );
+			jQuery( "#generateSh").click( jQuery.proxy( this.onGenerateSh, this ) );
 		},
 		
 		
@@ -33,7 +34,8 @@ var FsScanner = FsScanner || {};
 							 .generate();
 				
 				this.onCancelNewData();
-				
+
+				jQuery( "#main" ).show();
 			}
 		},
 		
@@ -42,9 +44,24 @@ var FsScanner = FsScanner || {};
 		{
 			jQuery( "#newDataContainer" ).hide();
 			jQuery( "#newDataContainer textarea" ).val( "" );
-			jQuery( "#main" ).show();
 			
 			return this;
+		},
+		
+		
+		onGenerateSh: function()
+		{
+			jQuery( ".containers" ).hide();
+			jQuery( "#generateShContainer" ).show();
+			
+			var commands = "";
+			
+			jQuery( "#mainLeft ul.root a.selected" ).each( function() {
+				
+				commands += "command\n";
+			} );
+			
+			jQuery( "#generateShContainer textarea" ).val( commands );
 		},
 		
 		

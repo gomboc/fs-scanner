@@ -20,6 +20,12 @@ a:hover {
 	text-decoration: underline;
 }
 
+textarea {
+	border: 1px solid #ccc;
+	height: 200px;
+	width: 500px;
+}
+
 #wrapper {
 	padding: 30px;
 }
@@ -31,12 +37,6 @@ a:hover {
 
 #newDataContainer {
 	padding: 20px;
-}
-
-#newDataContainer textarea {
-	border: 1px solid #ccc;
-	height: 200px;
-	width: 500px;
 }
 
 #navigation {
@@ -56,5 +56,14 @@ a:hover {
 	background-color: #ccc;
     border: 1px solid #999;
     padding: 0 1%;
+}
+
+#mainRight h3 {
+	padding-left: 0.3em;
+}
+
+#selectedDirs,
+#selectedFiles{
+	padding: 0.5em 1em;
 }
 	

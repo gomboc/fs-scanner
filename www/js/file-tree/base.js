@@ -8,6 +8,9 @@
 	FsScanner.fileTree.Base.prototype = 
 	{
 		
+		element: null,
+		
+			
 		options: {},
 		
 		
@@ -26,13 +29,13 @@
 			
 			this.selectedContainer.append( row );
 			
-			this.getElement().addClass( "selected" );
+			this.element.addClass( "selected" );
 		},
 		
 		
 		generateRow: function()
 		{
-			var link = jQuery( "<a>", {
+			this.element = jQuery( "<a>", {
 				click:	jQuery.proxy( this.onSelect, this ),
 				data:	{ obj: this },
 				href:	"javascript:void(0);",
@@ -43,18 +46,12 @@
 			
 			this.row = jQuery( "<li>", {
 				"class": "file",
-				html: 	 link
+				html: 	 this.element
 			} );
 
 			this.container.append( this.row );
 			
 			return this;
-		},
-		
-		
-		getElement: function()
-		{
-			return jQuery( "#" + this.getUid() );
 		},
 		
 		
@@ -71,7 +68,7 @@
 		
 		isSelected: function()
 		{
-			return this.getElement().hasClass( "selected" );
+			return this.element.hasClass( "selected" );
 		},
 		
 		
@@ -87,7 +84,7 @@
 		{
 			jQuery( "." + this.getUid(), this.selectedContainer).remove();
 			
-			this.getElement().removeClass( "selected" );
+			this.element.removeClass( "selected" );
 		},
 		
 		

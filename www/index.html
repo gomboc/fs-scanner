@@ -19,22 +19,28 @@
     <body>
     	<div id="wrapper">
 	        <h1>FS Scanner</h1>
+	        
 	        <div id="navigation">
-		        <ul>
-		        	<li>
-		        		<a href="javascript:void(0);" id="newData">New data</a>
-		        	</li>
-		        </ul>
+		        <a href="javascript:void(0);" id="newData">New data</a> |
+		        <a href="javascript:void(0);" id="generateSh">Generate commands</a>
 		    </div>
-	        <div id="newDataContainer" class="hidden">
+	        
+	        <div id="newDataContainer" class="hidden containers">
 	        	<p>
 	        		<textarea name="newData"></textarea>
 	        	</p>
-	        	<a href="javascript:void(0);" id="addNewData">Add</a>
+	        	<a href="javascript:void(0);" id="addNewData">Add</a> |
 	        	<a href="javascript:void(0);" id="cancelNewData">Cancel</a>
 	        </div>
-	        <div id="main" class="hidden">
+	        
+	        <div id="generateShContainer" class="hidden containers">
+        		<textarea name="generateSh"></textarea>
+	        </div>
+	        
+	        <div id="main" class="hidden containers">
+	        
 	        	<div id="mainLeft"></div>
+	        
 	        	<div id="mainRight">
 	        		<h3>Selected Directories</h3>
 	        		<div id="selectedDirs">
@@ -45,8 +51,11 @@
 	        			<ul></ul>
 	        		</div>
 	        	</div>
+	        
 	        	<div class="brclear"></div>
+	        
 	        </div>
+	        
 		</div>
 		
 		<script type="text/javascript">
