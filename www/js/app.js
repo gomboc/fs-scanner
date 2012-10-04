@@ -58,7 +58,9 @@ var FsScanner = FsScanner || {};
 			
 			jQuery( "#mainLeft ul.root a.selected" ).each( function() {
 				
-				commands += "command\n";
+				var obj = jQuery( this ).data( "obj" );
+				
+				commands += obj.getCommand() + "\n";
 			} );
 			
 			jQuery( "#generateShContainer textarea" ).val( commands );

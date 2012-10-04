@@ -55,6 +55,18 @@
 		},
 		
 		
+		getCommand: function()
+		{
+			return "cp " + this.getName() + " " + this.getDestination();
+		},
+		
+		
+		getDestination: function()
+		{
+			return "destination";
+		},
+		
+		
 		getUid: function()
 		{
 			if ( this.uid == null ) {
