@@ -45,6 +45,17 @@ var FsScanner = FsScanner || {};
 		},
 		
 		
+		getCommandParts: function()
+		{
+			return [ 
+			         this.cpParents, 
+			         "-R",
+			         this.wrapString( this.getName() ), 
+			         this.getDestination()
+			       ];
+		},
+		
+		
 		getName: function()
 		{
 			return this.data.dir;

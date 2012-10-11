@@ -8,6 +8,9 @@
 	FsScanner.fileTree.Base.prototype = 
 	{
 		
+		cpParents: "cp --parents",
+		
+			
 		element: null,
 		
 			
@@ -57,13 +60,13 @@
 		
 		getCommand: function()
 		{
-			return "cp " + this.getName() + " " + this.getDestination();
+			return this.getCommandParts().join( " " );
 		},
 		
 		
 		getDestination: function()
 		{
-			return "destination";
+			return "./";
 		},
 		
 		
@@ -105,6 +108,12 @@
 			this.options = options;
 			
 			return this;
+		},
+		
+		
+		wrapString: function( string )
+		{
+			return '"' + string + '"';
 		}
 			
 	};

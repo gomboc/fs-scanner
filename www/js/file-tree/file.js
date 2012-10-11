@@ -35,6 +35,21 @@
 		selectedContainer: null,
 		
 		
+		getCommandParts: function()
+		{
+			return [ 
+			         this.cpParents, 
+			         this.wrapString( this.getFullName() ), 
+			         this.getDestination()
+			       ];
+		},
+		
+		
+		getFullName: function()
+		{
+			return this.dirName + this.getName();
+		},
+				
 		
 		getName: function()
 		{
@@ -44,7 +59,7 @@
 		
 		removeFolderNameFromFile: function()
 		{
-			this.file.replace( this.dirName, "" );
+			this.file = this.file.replace( this.dirName, "" );
 			
 			return this;
 		}
